@@ -1,5 +1,3 @@
-// script.js COMPLETO Y CORREGIDO
-
 document.addEventListener("DOMContentLoaded", () => {
   const materias = {
     "Ciclo Básico Común (CBC)": [
@@ -13,34 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
 
     "1º Año": [
-      {
-        nombre: "Arquitectura I",
-        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
-      },
-      {
-        nombre: "Instalaciones A",
-        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
-      },
-      {
-        nombre: "Sistemas de Representación Gráfica",
-        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
-      },
-      {
-        nombre: "Introducción a la Tecnología Constructiva",
-        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
-      },
-      {
-        nombre: "Instalaciones Eléctricas",
-        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
-      },
-      {
-        nombre: "Física Aplicada a la Arquitectura",
-        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
-      },
-      {
-        nombre: "Matemática 2",
-        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
-      }
+      { nombre: "Arquitectura I", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] },
+      { nombre: "Instalaciones A", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] },
+      { nombre: "Sistemas de Representación Gráfica", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] },
+      { nombre: "Introducción a la Tecnología Constructiva", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] },
+      { nombre: "Instalaciones Eléctricas", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] },
+      { nombre: "Física Aplicada a la Arquitectura", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] },
+      { nombre: "Matemática 2", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] }
     ],
 
     "2º Año": [
@@ -65,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
 
     "4º Año": [
-      { nombre: "Arquitectura IV", req: ["Arquitectura III", "Morfología y Percepción", "Instalaciones A", "Construcciones 2", "Estructuras 2", "Instalaciones 2", "Teoría de la Arquitectura"] },
+      { nombre: "Arquitectura IV", req: ["Arquitectura III", "Morfología y Percepción", "Materiales 2", "Proyecto Urbano"] },
       { nombre: "Teoría de la Arquitectura", req: ["Arquitectura III", "Morfología y Percepción", "Historia 2"] },
       { nombre: "Historia 3", req: ["Historia 2"] },
       { nombre: "Construcciones 3", req: ["Construcciones 2"] },
@@ -75,10 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     "5º Año": [
       { nombre: "Proyecto Arquitectónico", req: ["Proyecto Urbano"] },
-      { nombre: "Diseño, Legislación y Organización", req: ["Construcciones 3", "Estructuras 3", "Instalaciones 3"] },
-      { nombre: "Práctica Profesional Asistida", req: ["Arquitectura IV", "Teoría de la Arquitectura", "Historia 3", "Construcciones 3", "Estructuras 3", "Instalaciones 3"] },
-      { nombre: "Práctica de Investigación", req: ["Historia 3"] },
-      { nombre: "Diseño y Planeamiento de la Ciudad", req: ["Arquitectura II", "Materiales 1", "Representación Arquitectónica", "Instalaciones A", "Construcciones 1", "Instalaciones 1", "Estructuras 1"] }
+      { nombre: "Diseño, Legislación y Organización", req: ["Arquitectura IV", "Historia 3", "Construcciones 3", "Estructuras 3", "Instalaciones 3"] },
+      { nombre: "Práctica Profesional Asistida", req: ["4º Año"] },
+      { nombre: "Práctica de Investigación", req: ["2º Año"] },
+      { nombre: "Diseño y Planeamiento de la Ciudad", req: ["Arquitectura II", "Materiales 1", "Representación Arquitectónica"] }
     ]
   };
 

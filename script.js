@@ -1,64 +1,109 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const materiasPorAnio = {
-    "Ciclo Básico Común (CBC)": [
-      "Introducción al Conocimiento de la Sociedad y el Estado",
-      "Introducción al Pensamiento Científico",
-      "Introducción al Conocimiento Proyectual 1",
-      "Introducción al Conocimiento Proyectual 2",
+document.addEventListener("DOMContentLoaded", () => {
+  const materias = {
+    "CBC": [
+      "ICSE",
+      "IPC",
+      "ICP1",
+      "ICP2",
       "Matemática",
       "Filosofía",
       "Taller de Dibujo"
     ],
     "1º Año": [
-      "Arquitectura I", "Instalaciones A", "Sistemas de Representación Gráfica",
-      "Introducción a la Tecnología Constructiva", "Instalaciones Eléctricas",
-      "Física Aplicada a la Arquitectura", "Matemática 2"
+      { nombre: "Arquitectura I", req: ["ICSE", "IPC", "ICP1", "ICP2", "Matemática", "Filosofía", "Taller de Dibujo"] },
+      "Instalaciones A",
+      "Sistemas de Representación Gráfica",
+      "Introducción a la Tecnología Constructiva",
+      "Instalaciones Eléctricas",
+      "Física Aplicada a la Arquitectura",
+      "Matemática 2"
     ],
     "2º Año": [
-      "Arquitectura II", "Representación Arquitectónica", "Historia 1", "Materiales 1",
-      "Construcciones 1", "Estructuras 1", "Instalaciones 1"
+      { nombre: "Arquitectura II", req: ["Arquitectura I", "Sistemas de Representación Gráfica", "Introducción a la Tecnología Constructiva"] },
+      { nombre: "Representación Arquitectónica", req: ["Sistemas de Representación Gráfica"] },
+      { nombre: "Historia 1", req: ["Instalaciones A"] },
+      { nombre: "Materiales 1", req: ["Sistemas de Representación Gráfica"] },
+      { nombre: "Construcciones 1", req: ["Introducción a la Tecnología Constructiva", "Instalaciones Eléctricas", "Matemática 2"] },
+      { nombre: "Estructuras 1", req: ["Introducción a la Tecnología Constructiva", "Instalaciones Eléctricas", "Matemática 2"] },
+      { nombre: "Instalaciones 1", req: ["Física Aplicada a la Arquitectura", "Introducción a la Tecnología Constructiva", "Matemática 2"] }
     ],
     "3º Año": [
-      "Arquitectura III", "Morfología y Percepción", "Materiales 2", "Historia 2",
-      "Construcciones 2", "Estructuras 2", "Instalaciones 2", "Proyecto Urbano"
+      { nombre: "Arquitectura III", req: ["Arquitectura II", "Materiales 1", "Representación Arquitectónica", "Instalaciones A", "Construcciones 1", "Instalaciones 1", "Estructuras 1"] },
+      { nombre: "Morfología y Percepción", req: ["Arquitectura II", "Materiales 1", "Representación Arquitectónica", "Instalaciones A", "Construcciones 1", "Instalaciones 1", "Estructuras 1"] },
+      { nombre: "Materiales 2", req: ["Arquitectura I", "Materiales 1", "Representación Arquitectónica"] },
+      { nombre: "Historia 2", req: ["Arquitectura I", "Sistemas de Representación Gráfica", "Historia 1"] },
+      { nombre: "Construcciones 2", req: ["Arquitectura I", "Sistemas de Representación Gráfica", "Construcciones 1"] },
+      { nombre: "Estructuras 2", req: ["Arquitectura I", "Sistemas de Representación Gráfica", "Construcciones 1", "Estructuras 1"] },
+      { nombre: "Instalaciones 2", req: ["Arquitectura I", "Sistemas de Representación Gráfica", "Construcciones 1", "Instalaciones 1"] }
     ],
     "4º Año": [
-      "Arquitectura IV", "Teoría de la Arquitectura", "Historia 3",
-      "Construcciones 3", "Estructuras 3", "Instalaciones 3"
+      { nombre: "Arquitectura IV", req: ["Arquitectura III", "Morfología y Percepción", "Instalaciones A", "Construcciones 2", "Estructuras 2", "Instalaciones 2", "Teoría de la Arquitectura"] },
+      "Teoría de la Arquitectura",
+      { nombre: "Historia 3", req: ["Historia 2"] },
+      { nombre: "Construcciones 3", req: ["Construcciones 2"] },
+      { nombre: "Estructuras 3", req: ["Estructuras 2"] },
+      { nombre: "Instalaciones 3", req: ["Instalaciones 2"] }
     ],
     "5º Año": [
-      "Proyecto Arquitectónico", "Diseño, Legislación y Organización",
-      "Práctica Profesional Asistida", "Práctica de Investigación",
+      { nombre: "Proyecto Arquitectónico", req: ["Proyecto Urbano"] },
+      { nombre: "Diseño, Legislación y Organización", req: ["Construcciones 3", "Estructuras 3", "Instalaciones 3"] },
+      { nombre: "Práctica Profesional Asistida", req: ["Arquitectura IV", "Teoría de la Arquitectura", "Historia 3", "Construcciones 3", "Estructuras 3", "Instalaciones 3"] },
+      "Práctica de Investigación",
       "Diseño y Planeamiento de la Ciudad"
     ]
   };
 
+  const aprobadas = new Set(JSON.parse(localStorage.getItem("aprobadas")) || []);
+
   const container = document.getElementById("malla-container");
 
-  for (const [anio, materias] of Object.entries(materiasPorAnio)) {
-    const section = document.createElement("div");
-    section.className = "anio";
+  const render = () => {
+    container.innerHTML = "";
+    for (const [anio, lista] of Object.entries(materias)) {
+      const bloque = document.createElement("div");
+      bloque.className = "anio";
 
-    const title = document.createElement("h2");
-    title.textContent = anio;
-    section.appendChild(title);
+      const titulo = document.createElement("h2");
+      titulo.textContent = anio;
+      bloque.appendChild(titulo);
 
-    const materiaDiv = document.createElement("div");
-    materiaDiv.className = "materias";
+      const caja = document.createElement("div");
+      caja.className = "materias";
 
-    materias.forEach(nombre => {
-      const div = document.createElement("div");
-      div.className = "materia";
-      div.textContent = nombre;
-      div.onclick = () => {
-        if (!div.classList.contains("bloqueada")) {
-          div.classList.toggle("aprobada");
+      lista.forEach(m => {
+        const nombre = typeof m === 'string' ? m : m.nombre;
+        const reqs = typeof m === 'string' ? [] : m.req || [];
+
+        const div = document.createElement("div");
+        div.className = "materia";
+        div.textContent = nombre;
+
+        const habilitada = reqs.every(r => aprobadas.has(r));
+
+        if (!habilitada && reqs.length) {
+          div.classList.add("bloqueada");
+        } else if (aprobadas.has(nombre)) {
+          div.classList.add("aprobada");
         }
-      };
-      materiaDiv.appendChild(div);
-    });
 
-    section.appendChild(materiaDiv);
-    container.appendChild(section);
-  }
+        div.onclick = () => {
+          if (div.classList.contains("bloqueada")) return;
+          if (aprobadas.has(nombre)) {
+            aprobadas.delete(nombre);
+          } else {
+            aprobadas.add(nombre);
+          }
+          localStorage.setItem("aprobadas", JSON.stringify([...aprobadas]));
+          render();
+        };
+
+        caja.appendChild(div);
+      });
+
+      bloque.appendChild(caja);
+      container.appendChild(bloque);
+    }
+  };
+
+  render();
 });

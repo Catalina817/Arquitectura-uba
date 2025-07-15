@@ -47,17 +47,17 @@ document.addEventListener("DOMContentLoaded", () => {
       { nombre: "Construcciones 3", req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 2", "Morfología 1", "Representación Arquitectónica", "Construcciones 2", "3º Año"] },
       { nombre: "Estructuras 3", req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 2", "Morfología 1", "Representación Arquitectónica", "Estructuras 3", "3º Año"] },
       { nombre: "Planificación Urbana", req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 3", "Morfología 1", "Representación Arquitectónica", "Instalaciones 1", "Estructuras 1", "Historia 1", "Historia 2", "3º Año"] },
-      { nombre: "Materias Optativas", 
+      { nombre: "Materias Optativas", req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 3", "Morfología 1", "Representación Arquitectónica", "Instalaciones 1", "Estructuras 1", "Historia 1"] }
       { nombre: "Prácticas Profesionales Asistidas", req: ["4º Año"] },
       { nombre: "Instalaciones 3", req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 2", "Morfología 1", "Representación Arquitectónica", "Construcciones 2", "Instalaciones 2", "3º Año"] }
     ],
 
     "5º Año": [
       { nombre: "Proyecto Arquitectónico", req: ["Proyecto Urbano"] },
-      { nombre: "Dirección y Legislación de Obra", req: ["Arquitectura IV"] },
-      { nombre: "Prácticas Profesionales Asistidas", req: ["Instalaciones 3"] },
-      { nombre: "Proyecto Urbano", req: ["Arquitectura III", "Historia 2", "Construcciones 2"] },
-      { nombre: "Materias Optativas",
+      { nombre: "Dirección y Legislación de Obra", req: ["Arquitectura 4", "Historia 1", "Construcciones 1", "Instalaciones 1", "Estructuras 1", "Historia 2", "Construcciones 2", "Instalaciones 2", "Estructuras 2", "Construcciones 3", "Instalaciones 3", "4º Año"] },
+      { nombre: "Prácticas Profesionales Asistidas", req: ["4º Año"] },
+      { nombre: "Proyecto Urbano", req: ["Arquitectura 4", "Historia 1", "Construcciones 1", "Instalaciones 1", "Estructuras 1", "Teoría de la Arquitectura", "Historia 3", "Construcciones 3", "Instalaciones 3", "Estructuras 3"] },
+      { nombre: "Materias Optativas",  req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 3", "Morfología 1", "Representación Arquitectónica", "Instalaciones 1", "Estructuras 1", "Historia 1"] }
     ]
   };
 

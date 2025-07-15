@@ -11,27 +11,27 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
 
     "1º Año": [
-      { nombre: "Arquitectura I", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] },
-      { nombre: "Instalaciones A", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] },
-      { nombre: "Sistemas de Representación Gráfica", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] },
-      { nombre: "Introducción a la Tecnología Constructiva", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] },
-      { nombre: "Instalaciones Eléctricas", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] },
-      { nombre: "Física Aplicada a la Arquitectura", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] },
-      { nombre: "Matemática 2", req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"] }
+      { nombre: "Arquitectura I", req: ["CBC"] },
+      { nombre: "Instalaciones A", req: ["CBC"] },
+      { nombre: "Sistemas de Representación Gráfica", req: ["CBC"] },
+      { nombre: "Introducción a la Tecnología Constructiva", req: ["CBC"] },
+      { nombre: "Instalaciones Eléctricas", req: ["CBC"] },
+      { nombre: "Física Aplicada a la Arquitectura", req: ["CBC"] },
+      { nombre: "Matemática 2", req: ["CBC"] }
     ],
 
     "2º Año": [
-      { nombre: "Arquitectura II", req: ["Arquitectura I", "Sistemas de Representación Gráfica"] },
+      { nombre: "Arquitectura II", req: ["Arquitectura I"] },
       { nombre: "Representación Arquitectónica", req: ["Sistemas de Representación Gráfica"] },
       { nombre: "Historia 1", req: ["Instalaciones A"] },
       { nombre: "Materiales 1", req: ["Sistemas de Representación Gráfica"] },
-      { nombre: "Construcciones 1", req: ["Introducción a la Tecnología Constructiva", "Instalaciones Eléctricas"] },
+      { nombre: "Construcciones 1", req: ["Introducción a la Tecnología Constructiva"] },
       { nombre: "Estructuras 1", req: ["Matemática 2", "Física Aplicada a la Arquitectura"] },
       { nombre: "Instalaciones 1", req: ["Física Aplicada a la Arquitectura"] }
     ],
 
     "3º Año": [
-      { nombre: "Arquitectura III", req: ["Arquitectura II", "Materiales 1"] },
+      { nombre: "Arquitectura III", req: ["Arquitectura II"] },
       { nombre: "Morfología y Percepción", req: ["Representación Arquitectónica"] },
       { nombre: "Materiales 2", req: ["Materiales 1"] },
       { nombre: "Historia 2", req: ["Historia 1"] },
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     "4º Año": [
       { nombre: "Arquitectura IV", req: ["Arquitectura III", "Morfología y Percepción"] },
-      { nombre: "Teoría de la Arquitectura", req: ["Arquitectura III", "Morfología y Percepción", "Historia 2"] },
+      { nombre: "Teoría de la Arquitectura", req: ["Arquitectura III", "Historia 2", "Morfología y Percepción"] },
       { nombre: "Historia 3", req: ["Historia 2"] },
       { nombre: "Construcciones 3", req: ["Construcciones 2"] },
       { nombre: "Estructuras 3", req: ["Estructuras 2"] },
@@ -84,7 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
         div.className = "materia";
         div.textContent = nombre;
 
-        const habilitada = reqs.every(r => aprobadas.has(r));
+        const habilitada = reqs.every(r => {
+          if (r === "CBC") {
+            return materias["Ciclo Básico Común (CBC)"].every(cbc => aprobadas.has(cbc));
+          }
+          return aprobadas.has(r);
+        });
 
         if (!habilitada && reqs.length) {
           div.classList.add("bloqueada");

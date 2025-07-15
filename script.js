@@ -102,8 +102,13 @@ document.addEventListener("DOMContentLoaded", () => {
         nombre: "Teoría de la Arquitectura",
         req: [
           "Arquitectura III",
-          "Morfología y Percepción",
-          "Historia 2"
+          "Historia 2",
+          "Instalaciones 2",
+          "Construcciones 2",
+          "Estructuras 2",
+          "Sistemas de Representación Gráfica",
+          "Instalaciones A",
+          "Instalaciones 1"
         ]
       }
     ],
@@ -112,17 +117,19 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         nombre: "Práctica de Investigación",
         req: [
-          "Arquitectura III",
-          "Historia 2",
-          "Construcciones 2"
+          "Segundo Nivel Completo"
         ]
       },
       {
         nombre: "Diseño y Planeamiento de la Ciudad",
         req: [
-          "Arquitectura III",
-          "Historia 2",
-          "Morfología y Percepción"
+          "Arquitectura II",
+          "Materiales 1",
+          "Representación Arquitectónica",
+          "Instalaciones A",
+          "Construcciones 1",
+          "Instalaciones 1",
+          "Estructuras 1"
         ]
       }
     ]

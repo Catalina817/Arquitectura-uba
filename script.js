@@ -1,74 +1,64 @@
-const subjects = {
-  "1º Año": [
-    { code: "ICSE" },
-    { code: "IPC" },
-    { code: "ICP1" },
-    { code: "ICP2" },
-    { code: "Matemática" },
-    { code: "Filosofía" },
-    { code: "T. de Dibujo" },
-  ],
-  "2º Año": [
-    { code: "AI", prereq: ["ICSE", "IPC", "ICP1", "ICP2", "Matemática", "Filosofía", "T. de Dibujo"] },
-    { code: "IAC" },
-    { code: "SRG" },
-    { code: "ITC" },
-    { code: "ITE" },
-    { code: "FAA" },
-    { code: "MAT2" },
-  ],
-  // ... continuar con los años 3 a 6
-};
+document.addEventListener("DOMContentLoaded", function () {
+  const materiasPorAnio = {
+    "Ciclo Básico Común (CBC)": [
+      "Introducción al Conocimiento de la Sociedad y el Estado",
+      "Introducción al Pensamiento Científico",
+      "Introducción al Conocimiento Proyectual 1",
+      "Introducción al Conocimiento Proyectual 2",
+      "Matemática",
+      "Filosofía",
+      "Taller de Dibujo"
+    ],
+    "1º Año": [
+      "Arquitectura I", "Instalaciones A", "Sistemas de Representación Gráfica",
+      "Introducción a la Tecnología Constructiva", "Instalaciones Eléctricas",
+      "Física Aplicada a la Arquitectura", "Matemática 2"
+    ],
+    "2º Año": [
+      "Arquitectura II", "Representación Arquitectónica", "Historia 1", "Materiales 1",
+      "Construcciones 1", "Estructuras 1", "Instalaciones 1"
+    ],
+    "3º Año": [
+      "Arquitectura III", "Morfología y Percepción", "Materiales 2", "Historia 2",
+      "Construcciones 2", "Estructuras 2", "Instalaciones 2", "Proyecto Urbano"
+    ],
+    "4º Año": [
+      "Arquitectura IV", "Teoría de la Arquitectura", "Historia 3",
+      "Construcciones 3", "Estructuras 3", "Instalaciones 3"
+    ],
+    "5º Año": [
+      "Proyecto Arquitectónico", "Diseño, Legislación y Organización",
+      "Práctica Profesional Asistida", "Práctica de Investigación",
+      "Diseño y Planeamiento de la Ciudad"
+    ]
+  };
 
-let completed = new Set();
-
-function canUnlock(subject) {
-  if (!subject.prereq) return true;
-  return subject.prereq.every(req => completed.has(req));
-}
-
-function renderMalla() {
   const container = document.getElementById("malla-container");
-  container.innerHTML = "";
 
-  Object.entries(subjects).forEach(([year, ramos]) => {
-    const yearDiv = document.createElement("div");
-    yearDiv.className = "year-block";
+  for (const [anio, materias] of Object.entries(materiasPorAnio)) {
+    const section = document.createElement("div");
+    section.className = "anio";
 
-    const title = document.createElement("div");
-    title.className = "year-title";
-    title.textContent = year;
-    yearDiv.appendChild(title);
+    const title = document.createElement("h2");
+    title.textContent = anio;
+    section.appendChild(title);
 
-    ramos.forEach(ramo => {
-      const btn = document.createElement("div");
-      btn.className = "subject";
+    const materiaDiv = document.createElement("div");
+    materiaDiv.className = "materias";
 
-      if (completed.has(ramo.code)) {
-        btn.classList.add("completed");
-      } else if (!canUnlock(ramo)) {
-        btn.classList.add("locked");
-      } else {
-        btn.classList.add("pending");
-      }
-
-      btn.textContent = ramo.code;
-      btn.onclick = () => {
-        if (!canUnlock(ramo)) return;
-
-        if (completed.has(ramo.code)) {
-          completed.delete(ramo.code);
-        } else {
-          completed.add(ramo.code);
+    materias.forEach(nombre => {
+      const div = document.createElement("div");
+      div.className = "materia";
+      div.textContent = nombre;
+      div.onclick = () => {
+        if (!div.classList.contains("bloqueada")) {
+          div.classList.toggle("aprobada");
         }
-        renderMalla();
       };
-
-      yearDiv.appendChild(btn);
+      materiaDiv.appendChild(div);
     });
 
-    container.appendChild(yearDiv);
-  });
-}
-
-renderMalla();
+    section.appendChild(materiaDiv);
+    container.appendChild(section);
+  }
+});

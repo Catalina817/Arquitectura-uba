@@ -1,3 +1,5 @@
+// script.js COMPLETO Y CORREGIDO
+
 document.addEventListener("DOMContentLoaded", () => {
   const materias = {
     "Ciclo Básico Común (CBC)": [
@@ -13,125 +15,70 @@ document.addEventListener("DOMContentLoaded", () => {
     "1º Año": [
       {
         nombre: "Arquitectura I",
-        req: [
-          "Introducción al Conocimiento de la Sociedad y el Estado",
-          "Introducción al Pensamiento Científico",
-          "Introducción al Conocimiento Proyectual 1",
-          "Introducción al Conocimiento Proyectual 2",
-          "Matemática",
-          "Filosofía",
-          "Taller de Dibujo"
-        ]
+        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
       },
       {
         nombre: "Instalaciones A",
-        req: [
-          "Introducción al Conocimiento de la Sociedad y el Estado",
-          "Introducción al Pensamiento Científico",
-          "Introducción al Conocimiento Proyectual 1",
-          "Introducción al Conocimiento Proyectual 2",
-          "Matemática",
-          "Filosofía",
-          "Taller de Dibujo"
-        ]
+        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
       },
       {
         nombre: "Sistemas de Representación Gráfica",
-        req: [
-          "Introducción al Conocimiento de la Sociedad y el Estado",
-          "Introducción al Pensamiento Científico",
-          "Introducción al Conocimiento Proyectual 1",
-          "Introducción al Conocimiento Proyectual 2",
-          "Matemática",
-          "Filosofía",
-          "Taller de Dibujo"
-        ]
+        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
       },
       {
         nombre: "Introducción a la Tecnología Constructiva",
-        req: [
-          "Introducción al Conocimiento de la Sociedad y el Estado",
-          "Introducción al Pensamiento Científico",
-          "Introducción al Conocimiento Proyectual 1",
-          "Introducción al Conocimiento Proyectual 2",
-          "Matemática",
-          "Filosofía",
-          "Taller de Dibujo"
-        ]
+        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
       },
       {
         nombre: "Instalaciones Eléctricas",
-        req: [
-          "Introducción al Conocimiento de la Sociedad y el Estado",
-          "Introducción al Pensamiento Científico",
-          "Introducción al Conocimiento Proyectual 1",
-          "Introducción al Conocimiento Proyectual 2",
-          "Matemática",
-          "Filosofía",
-          "Taller de Dibujo"
-        ]
+        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
       },
       {
         nombre: "Física Aplicada a la Arquitectura",
-        req: [
-          "Introducción al Conocimiento de la Sociedad y el Estado",
-          "Introducción al Pensamiento Científico",
-          "Introducción al Conocimiento Proyectual 1",
-          "Introducción al Conocimiento Proyectual 2",
-          "Matemática",
-          "Filosofía",
-          "Taller de Dibujo"
-        ]
+        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
       },
       {
         nombre: "Matemática 2",
-        req: [
-          "Introducción al Conocimiento de la Sociedad y el Estado",
-          "Introducción al Pensamiento Científico",
-          "Introducción al Conocimiento Proyectual 1",
-          "Introducción al Conocimiento Proyectual 2",
-          "Matemática",
-          "Filosofía",
-          "Taller de Dibujo"
-        ]
+        req: ["Introducción al Conocimiento de la Sociedad y el Estado", "Introducción al Pensamiento Científico", "Introducción al Conocimiento Proyectual 1", "Introducción al Conocimiento Proyectual 2", "Matemática", "Filosofía", "Taller de Dibujo"]
       }
+    ],
+
+    "2º Año": [
+      { nombre: "Arquitectura II", req: ["Arquitectura I", "Sistemas de Representación Gráfica", "Introducción a la Tecnología Constructiva"] },
+      { nombre: "Representación Arquitectónica", req: ["Sistemas de Representación Gráfica"] },
+      { nombre: "Historia 1", req: ["Instalaciones A"] },
+      { nombre: "Materiales 1", req: ["Sistemas de Representación Gráfica"] },
+      { nombre: "Construcciones 1", req: ["Introducción a la Tecnología Constructiva", "Instalaciones Eléctricas", "Matemática 2"] },
+      { nombre: "Estructuras 1", req: ["Introducción a la Tecnología Constructiva", "Instalaciones Eléctricas", "Matemática 2"] },
+      { nombre: "Instalaciones 1", req: ["Física Aplicada a la Arquitectura", "Introducción a la Tecnología Constructiva", "Matemática 2"] }
+    ],
+
+    "3º Año": [
+      { nombre: "Arquitectura III", req: ["Arquitectura II", "Materiales 1", "Representación Arquitectónica", "Instalaciones A", "Construcciones 1", "Instalaciones 1", "Estructuras 1"] },
+      { nombre: "Morfología y Percepción", req: ["Arquitectura II", "Materiales 1", "Representación Arquitectónica", "Instalaciones A", "Construcciones 1", "Instalaciones 1", "Estructuras 1"] },
+      { nombre: "Materiales 2", req: ["Arquitectura I", "Materiales 1", "Representación Arquitectónica"] },
+      { nombre: "Historia 2", req: ["Arquitectura I", "Sistemas de Representación Gráfica", "Historia 1"] },
+      { nombre: "Construcciones 2", req: ["Arquitectura I", "Sistemas de Representación Gráfica", "Construcciones 1"] },
+      { nombre: "Estructuras 2", req: ["Arquitectura I", "Sistemas de Representación Gráfica", "Construcciones 1", "Estructuras 1"] },
+      { nombre: "Instalaciones 2", req: ["Arquitectura I", "Sistemas de Representación Gráfica", "Construcciones 1", "Instalaciones 1"] },
+      { nombre: "Proyecto Urbano", req: ["Arquitectura III"] }
     ],
 
     "4º Año": [
-      {
-        nombre: "Teoría de la Arquitectura",
-        req: [
-          "Arquitectura III",
-          "Historia 2",
-          "Instalaciones 2",
-          "Construcciones 2",
-          "Estructuras 2",
-          "Sistemas de Representación Gráfica",
-          "Instalaciones A",
-          "Instalaciones 1"
-        ]
-      }
+      { nombre: "Arquitectura IV", req: ["Arquitectura III", "Morfología y Percepción", "Instalaciones A", "Construcciones 2", "Estructuras 2", "Instalaciones 2", "Teoría de la Arquitectura"] },
+      { nombre: "Teoría de la Arquitectura", req: ["Arquitectura III", "Morfología y Percepción", "Historia 2"] },
+      { nombre: "Historia 3", req: ["Historia 2"] },
+      { nombre: "Construcciones 3", req: ["Construcciones 2"] },
+      { nombre: "Estructuras 3", req: ["Estructuras 2"] },
+      { nombre: "Instalaciones 3", req: ["Instalaciones 2"] }
     ],
 
     "5º Año": [
-      {
-        nombre: "Práctica de Investigación",
-        req: [
-          "Segundo Nivel Completo"
-        ]
-      },
-      {
-        nombre: "Diseño y Planeamiento de la Ciudad",
-        req: [
-          "Arquitectura II",
-          "Materiales 1",
-          "Representación Arquitectónica",
-          "Instalaciones A",
-          "Construcciones 1",
-          "Instalaciones 1",
-          "Estructuras 1"
-        ]
-      }
+      { nombre: "Proyecto Arquitectónico", req: ["Proyecto Urbano"] },
+      { nombre: "Diseño, Legislación y Organización", req: ["Construcciones 3", "Estructuras 3", "Instalaciones 3"] },
+      { nombre: "Práctica Profesional Asistida", req: ["Arquitectura IV", "Teoría de la Arquitectura", "Historia 3", "Construcciones 3", "Estructuras 3", "Instalaciones 3"] },
+      { nombre: "Práctica de Investigación", req: ["Historia 3"] },
+      { nombre: "Diseño y Planeamiento de la Ciudad", req: ["Arquitectura II", "Materiales 1", "Representación Arquitectónica", "Instalaciones A", "Construcciones 1", "Instalaciones 1", "Estructuras 1"] }
     ]
   };
 

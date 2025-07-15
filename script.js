@@ -31,34 +31,33 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
 
     "3º Año": [
-      { nombre: "Arquitectura 3", req: ["Arquitectura II", "Morfología 1", "Representación Arquitectónica", "Introducción a la Arquitectura Contemporánea", "Construcciones 1", "Instalaciones 1", "Estructuras 1"] },
-      { nombre: "Morfología 2", req: ["Arquitectura II", "Morfología 1", "Representación Arquitectónica", "Introducción a la Arquitectura Contemporánea", "Construcciones 1", "Instalaciones 1", "Estructuras 1"] },
-      { nombre: "Materiales 2", req: ["Materiales 1"] },
-      { nombre: "Historia 2", req: ["Historia 1"] },
-      { nombre: "Construcciones 2", req: ["Construcciones 1"] },
-      { nombre: "Estructuras 2", req: ["Estructuras 1"] },
-      { nombre: "Instalaciones 2", req: ["Instalaciones 1"] },
-      { nombre: "Materialización de Proyectos", req: ["Arquitectura III"] }
+      { nombre: "Arquitectura 3", req: ["Arquitectura 2", "Morfología 1", "Representación Arquitectónica", "Introducción a la Arquitectura Contemporánea", "Construcciones 1", "Instalaciones 1", "Estructuras 1"] },
+      { nombre: "Morfología 2", req: ["Arquitectura 1", "Morfología 1", "Representación Arquitectónica"] },
+      { nombre: "Historia 2", req: ["Historia 1", "Sistemas de Representación Geométrica", "Arquitectura 1"] },
+      { nombre: "Construcciones 2", req: ["Construcciones 1", "Sistemas de Representación Geométrica", "Arquitectura 1] },
+      { nombre: "Estructuras 2", req: ["Estructuras 1", "Sistemas de Representación Geométrica", "Arquitectura 1", "Construcciones 1"] },
+      { nombre: "Instalaciones 2", req: ["Instalaciones 1", "Sistemas de Representación Geométrica", "Arquitectura 1", "Construcciones 1"] },
+      { nombre: "Materialización de Proyectos", req: ["Arquitectura 2", "Morfología 1", "Representación Arquitectónica", "Introducción a la Arquitectura Contemporánea", "Construcciones 1", "Instalaciones 1", "Estructuras 1"] }
     ],
 
     "4º Año": [
-      { nombre: "Arquitectura IV", req: ["Arquitectura III", "Morfología y Percepción"] },
-      { nombre: "Teoría de la Arquitectura", req: ["Arquitectura III", "Historia 2", "Morfología y Percepción"] },
-      { nombre: "Historia 3", req: ["Historia 2"] },
-      { nombre: "Construcciones 3", req: ["Construcciones 2"] },
-      { nombre: "Estructuras 3", req: ["Estructuras 2"] },
-      { nombre: "Planificación Urbana", req: ["Estructuras 2"] },
-      { nombre: "Materias Optativas", req: ["Estructuras 2"] },
-      { nombre: "Prácticas Profesionales Asistidas", req: ["Arquitectura IV", "Historia 3", "Construcciones 3", "Estructuras 3", "Instalaciones 3"] },
-      { nombre: "Instalaciones 3", req: ["Instalaciones 2"] }
+      { nombre: "Arquitectura 4", req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 3", "Morfología 2", "Materialización de Proyectos", "Construcciones 2", "Instalaciones 2", "Estructuras 1", "Historia 1"] },
+      { nombre: "Teoría de la Arquitectura", req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 3", "Morfología 2", "Materialización de Proyectos", "Construcciones 1", "Instalaciones 1", "Estructuras 1", "Historia 1"] },
+      { nombre: "Historia 3", req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 2", "Morfología 1", "Representación Arquitectónica", "Historia 2", "3º Año"] },
+      { nombre: "Construcciones 3", req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 2", "Morfología 1", "Representación Arquitectónica", "Construcciones 2", "3º Año"] },
+      { nombre: "Estructuras 3", req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 2", "Morfología 1", "Representación Arquitectónica", "Estructuras 3", "3º Año"] },
+      { nombre: "Planificación Urbana", req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 3", "Morfología 1", "Representación Arquitectónica", "Instalaciones 1", "Estructuras 1", "Historia 1", "Historia 2", "3º Año"] },
+      { nombre: "Materias Optativas", 
+      { nombre: "Prácticas Profesionales Asistidas", req: ["4º Año"] },
+      { nombre: "Instalaciones 3", req: ["Introducción a la Arquitectura Contemporánea", "Introducción a los Tipos Constructivos", "Introducción a los Tipos Estructurales", "Física Aplicada a la Arquitectura", "Matemática 2", "Arquitectura 2", "Morfología 1", "Representación Arquitectónica", "Construcciones 2", "Instalaciones 2", "3º Año"] }
     ],
 
     "5º Año": [
       { nombre: "Proyecto Arquitectónico", req: ["Proyecto Urbano"] },
       { nombre: "Dirección y Legislación de Obra", req: ["Arquitectura IV"] },
-      { nombre: "Prácticas Profesionales Asistidas", req: ["Arquitectura IV", "Historia 3", "Construcciones 3", "Estructuras 3", "Instalaciones 3"] },
+      { nombre: "Prácticas Profesionales Asistidas", req: ["Instalaciones 3"] },
       { nombre: "Proyecto Urbano", req: ["Arquitectura III", "Historia 2", "Construcciones 2"] },
-      { nombre: "Materias Optativas", req: ["Estructuras 2"] }
+      { nombre: "Materias Optativas",
     ]
   };
 
